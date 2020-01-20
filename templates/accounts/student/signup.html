@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<title>SIGNUP || ECELL</title>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<!--===============================================================================================-->
+	<link rel="icon" type="image/png" href="/static/accounts/images/icons/favicon.ico" />
+	<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="/static/accounts/vendor/bootstrap/css/bootstrap.min.css">
+	<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="/static/accounts/fonts/font-awesome-4.7.0/css/font-awesome.min.css">
+	<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="/static/accounts/fonts/Linearicons-Free-v1.0.0/icon-font.min.css">
+	<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="/static/accounts/vendor/animate/animate.css">
+	<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="/static/accounts/vendor/css-hamburgers/hamburgers.min.css">
+	<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="/static/accounts/vendor/animsition/css/animsition.min.css">
+	<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="/static/accounts/vendor/select2/select2.min.css">
+	<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="/static/accounts/vendor/daterangepicker/daterangepicker.css">
+	<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="/static/accounts/css/util.css">
+	<link rel="stylesheet" type="text/css" href="/static/accounts/css/main.css">
+	<!--===============================================================================================-->
+</head>
+
+<body>
+
+	<div class="limiter">
+		<div class="container-login100">
+			<div class="wrap-login100">
+				<div class="login100-form-title" style="background-image: url(/static/accounts/images/bg-01.jpg);">
+					<span class="login100-form-title-1">
+						STUDENT SIGN UP
+					</span>
+				</div>
+
+				<form class="login100-form validate-form" method="POST" action="/accounts/s/signup/">
+					{% csrf_token %}
+					{% if form.errors or error_msg %}
+					<div class="errorMsg">
+						<td style="color: red">
+							{{error_msg}}
+							{% for field in form.visible_fields %}
+								{{ field.errors }}
+							{% endfor %}
+						</td>
+					</div>
+					{% endif %}
+
+					{% for field in form.visible_fields %}
+					<tr>
+						<div class="wrap-input100 validate-input m-b-26" data-validate="">
+							<span class="label-input100">{{ field.label_tag }}</span>
+							{{ field }}
+							<span class="focus-input100"></span>
+						</div>
+
+					</tr>
+					{% endfor %}
+					<div class="container-login100-form-btn">
+						<button class="login100-form-btn">
+							SIGN UP
+						</button>
+					</div>
+				</form>
+			</div>
+		</div>
+	</div>
+
+	<!--===============================================================================================-->
+	<script src="/static/accounts/vendor/jquery/jquery-3.2.1.min.js"></script>
+	<!--===============================================================================================-->
+	<script src="/static/accounts/vendor/animsition/js/animsition.min.js"></script>
+	<!--===============================================================================================-->
+	<script src="/static/accounts/vendor/bootstrap/js/popper.js"></script>
+	<script src="/static/accounts/vendor/bootstrap/js/bootstrap.min.js"></script>
+	<!--===============================================================================================-->
+	<script src="/static/accounts/vendor/select2/select2.min.js"></script>
+	<!--===============================================================================================-->
+	<script src="/static/accounts/vendor/daterangepicker/moment.min.js"></script>
+	<script src="/static/accounts/vendor/daterangepicker/daterangepicker.js"></script>
+	<!--===============================================================================================-->
+	<script src="/static/accounts/vendor/countdowntime/countdowntime.js"></script>
+	<!--===============================================================================================-->
+	<script src="/static/accounts/js/main.js"></script>
+
+</body>
+
+</html>
