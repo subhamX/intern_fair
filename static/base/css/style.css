@@ -4,13 +4,19 @@
 * Description: Webiz Digital Agency - Responsive Bootstrap Template
 * Author: Salvatore Mandis
 * Author URI: https://www.salvatoremandis.it
+*//*
+* Template Name: Webiz
+* Template URI: https://www.salvatoremandis.it
+* Description: Webiz Digital Agency - Responsive Bootstrap Template
+* Author: Salvatore Mandis
+* Author URI: https://www.salvatoremandis.it
 */
 *{margin: 0;padding: 0;}
 body{font-family: sans-serif;background-color: #888;-webkit-font-smoothing: antialiased;}
-#nav-bar{position: sticky;top: 0;z-index: 10;}
+#nav-bar{position: sticky;top: 0;z-index: 10;opacity: 1; }
 .navbar{background: linear-gradient(to right, #1723b1,#58f0ff);padding: 0 !important;}
 /* Logo resize */
-.navbar-brand img{height: 4rem;padding-left: 3rem;}
+.navbar-brand img{height: 4rem;padding-left: 2rem;}
 .navbar-nav{margin-right: 3rem;}
 .navbar-nav li{padding: 0 1rem;}
 .navbar-nav li{padding: 0 1rem;}
@@ -53,6 +59,42 @@ body{font-family: sans-serif;background-color: #888;-webkit-font-smoothing: anti
 }
 #services .btn-primary:hover{transform: scale(1.2);}
 
+
+.our-schedule-area {
+  position: relative;
+  z-index: 1;
+  
+  color: black;
+}
+
+.our-schedule-area .schedule-tab {
+  position: relative;
+  z-index: 1;
+  margin-bottom: 45px;
+}
+
+.our-schedule-area .schedule-tab .nav-tabs {
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  border-bottom: none;
+}
+.single-schedule-area {
+  border: 1px solid #444675;
+  border-radius: 10px;
+  padding: 25px;
+  -webkit-transition-duration: 500ms;
+  -o-transition-duration: 500ms;
+  transition-duration: 500ms;
+  margin-bottom: 20px;
+}
+
+.single-schedule-area:hover, .single-schedule-area:focus {
+  border-color: black;
+}
+
+
+/* -----------   About -------------*/
 .btn-primary{
   box-shadow: none;
   padding: 8px 25px;
@@ -61,9 +103,6 @@ body{font-family: sans-serif;background-color: #888;-webkit-font-smoothing: anti
   transition: transform 1.2s;
 }
 .btn-primary:hover{transform: scale(1.2);}
-
-
-/* -----------   About -------------*/
 #about{background-color: #f8f9fa; padding-bottom: 3rem; padding-top: 3rem;}
 .about-title{font-size: 1.6em; margin-top: 8%; font-weight: 600;}
 #about ul li{margin: 10px 0;}
@@ -78,7 +117,7 @@ body{font-family: sans-serif;background-color: #888;-webkit-font-smoothing: anti
 #footer{background: linear-gradient(to right, #1723b1,#58f0ff); color: #fff;}
 .footer-img{width: 100%;}
 .footer-box{padding: 20px;}
-.footer-box img{width: 4rem; margin-bottom: 20px;}
+.footer-box img{width: 7rem; margin-bottom: 20px;}
 .footer-box .fa{
   margin-right: 8px;
   font-size: 25px;
@@ -105,3 +144,108 @@ body{font-family: sans-serif;background-color: #888;-webkit-font-smoothing: anti
 .copyright{padding-top: 2%; font-size: 15px;}
 .copyright a{text-decoration: none;color: #fff;}
 .copyright a:hover{text-decoration: none;color: #1723b1;}
+
+.event {
+  position: relative;
+}
+
+.event+.event {
+  margin-top: 60px;
+}
+
+.event:after {
+  content: "";
+  position: absolute;
+  left: 60px;
+  top: 0px;
+  bottom: 0px;
+  width: 4px;
+  background-color:linear-gradient(to right, #1723b1,#58f0ff);
+}
+
+.event:last-child:after {
+  height: 60px;
+}
+
+.event+.event:before {
+  content: "";
+  position: absolute;
+  left: 60px;
+  height: 60px;
+  top: -60px;
+  width: 4px;
+  background-color: linear-gradient(to right, #1723b1,#58f0ff);
+}
+
+.event .event-day {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  background: linear-gradient(to right, #1723b1,#58f0ff);
+  z-index: 10;
+}
+
+.event .event-hour {
+  position: absolute;
+  left: 62px;
+  top: 60px;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  background: linear-gradient(to right, #1723b1,#58f0ff);
+  z-index: 10;
+  -webkit-transform: translateX(-50%);
+  -ms-transform: translateX(-50%);
+  transform: translateX(-50%);
+}
+
+.event .event-day>div {
+  position: absolute;
+  top: 50%;
+  left: 0;
+  right: 0;
+  text-align: center;
+  -webkit-transform: translateY(-50%);
+  -ms-transform: translateY(-50%);
+  transform: translateY(-50%);
+}
+
+.event .event-day .day {
+  display: block;
+  color: #FFF;
+  text-transform: uppercase;
+  font-weight: 700;
+  font-size: 40px;
+  line-height: 40px;
+}
+
+.event .event-day .year {
+  color: #FFF;
+  text-transform: uppercase;
+  font-size: 12px;
+}
+
+.event .event-content {
+  padding-left: 160px;
+  min-height: 120px;
+}
+
+.event .event-time {
+  font-size: 14px;
+}
+
+.event .event-time i {
+  color: linear-gradient(to right, #1723b1,#58f0ff);
+}
+
+.event .event-content a {
+  color: linear-gradient(to right, #1723b1,#58f0ff);
+}
+
+.download-btn {
+  margin-top: 60px;
+  text-align: center;
+}
