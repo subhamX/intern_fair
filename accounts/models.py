@@ -11,7 +11,7 @@ class CompanyProfile(models.Model):
     company_name = models.CharField(max_length=100)
     email = models.EmailField()
     contact_number = models.IntegerField()
-    website_link = models.SlugField()
+    website_link = models.URLField()
 
 class StudentProfile(models.Model):
     name = models.CharField(max_length=100)

@@ -47,8 +47,16 @@
 
   #register-section {
     background-color: #1c0c35;
-    height: 30vh;
+    height: 35vh;
     text-align: center;
+  }
+
+  .heading-register {
+    margin-top: 35px;
+  }
+
+  #register-section .container .row .btn-register {
+    margin-bottom: 15px;
   }
 
   .heading-register {
@@ -57,41 +65,22 @@
     font-weight: bold;
     font-size: 30px;
   }
- 
 </style>
 
 <body>
-  <!-- Navbar Menu  ---->
-  <section id="nav-bar">
-    <nav class="navbar navbar-expand-lg navbar-light">
-      <a class="navbar-brand" href="#">
-        <img src="/static/base/images/logo.png" style="height: 10vh;">
-      </a>
-      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
-        aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-        <i class="fa fa-bars"></i>
-      </button>
-      <div class="collapse navbar-collapse" id="navbarNav">
-        <ul class="navbar-nav ml-auto">
-          <li class="nav-item">
-            <a class="nav-link" href="#top">Home <span class="sr-only">(current)</span></a>
-            <!-- <li class="nav-item">
-              <a class="nav-link" href="#testimonials">Testimonials</a>
-            </li> -->
-          <li class="nav-item">
-            <a class="nav-link" href="#">Register</a>
-          </li>
-        </ul>
-      </div>
-    </nav>
-  </section>
+  {% include "main/navbar.html" %}
   <!--- Banner Hero section ------->
   <section class="banner">
     <div class="container">
       <div class="row">
         <div class="col-md-6">
           <p class="promo-title">IIT Ropar Intern Fair</p>
-          <a href="#" class="btn-register" style="background-color: transparent; font-size: 25px;">REGISTER</a>
+          {% if not user.is_authenticated %}
+
+          <a href="#register-section" class="btn-register"
+            style="background-color: transparent; font-size: 25px;">REGISTER</a>
+          {% endif %}
+
         </div>
         <div class="col-md-6">
           <img src="/static/base/svg/undraw_email_campaign_qa8y.svg" alt="" class="img-fluid">
@@ -102,6 +91,24 @@
     <img src="/static/base/images/ground@-min.png" class="bottom-img" alt="">
   </section>
 
+  {% if not user.is_authenticated %}
+  <section id="register-section">
+    <div class="heading-register">
+      REGISTER AS
+    </div>
+    <div class="container">
+      <div class="row">
+        <div class="col-md-4 col-sm-12">
+          <a href="{% url 'accounts:company_signup' %}" class="btn-register">COMPANY</a>
+        </div>
+        <div class="col-md-4 col-sm-12"></div>
+        <div class="col-md-4 col-sm-12">
+          <a href="{% url 'accounts:student_signup' %}" class="btn-register">STUDENT</a>
+        </div>
+      </div>
+    </div>
+  </section>
+  {% endif %}
   <!--- About Section ------>
   <section id="about">
     <div class="container">
@@ -157,177 +164,16 @@
   </section>
 
 
-
-
-  <!-- Event Schedule -->
-  <div id="schedule" class="section">
-    <!-- container -->
-    <div class="container">
-      <!-- row -->
-      <div class="row">
-        <!-- section title -->
-        <div class="section-title">
-          <h3 class="title text-center"><span>Event</span> <span style="color: #dd0a37;">Schedule</span></h3>
-        </div>
-        <!-- /section title -->
-
-        <div class="col-md-8 col-md-offset-2">
-
-          <div class="events-wrapper">
-            <!-- event -->
-            <div class="event">
-              <div class="event-day">
-                <div>
-                  <span class="day">15</span>
-                  <span class="year">Feb, 2018</span>
-                </div>
-              </div>
-              <div class="event-content">
-                <p class="event-time"><i class="fa fa-clock-o"></i> 8 : 00 AM - 11 : 00 AM</p>
-                <h3 class="event-title">His id altera fabellas facilisis. Has eros assueverit cu</h3>
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore
-                  et dolore magna aliqua.</p>
-                <p>By <a href="#">John Doe</a></p>
-              </div>
-            </div>
-            <!-- /event -->
-
-            <!-- event -->
-            <div class="event">
-              <div class="event-hour"></div>
-              <div class="event-content">
-                <p class="event-time"><i class="fa fa-clock-o"></i> 8 : 00 AM - 11 : 00 AM</p>
-                <h3 class="event-title">Perpetua consectetuer definitiones id sea, mei utinam eripuit ne</h3>
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore
-                  et dolore magna aliqua.</p>
-                <p>By <a href="#">John Doe</a></p>
-              </div>
-            </div>
-            <!-- /event -->
-
-            <!-- event -->
-            <div class="event">
-              <div class="event-hour"></div>
-              <div class="event-content">
-                <p class="event-time"><i class="fa fa-clock-o"></i> 8 : 00 AM - 11 : 00 AM</p>
-                <h3 class="event-title">At mucius deserunt delicatissimi eam, labitur detraxit ut sit</h3>
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore
-                  et dolore magna aliqua.</p>
-                <p>By <a href="#">John Doe</a></p>
-              </div>
-            </div>
-            <!-- /event -->
-
-            <!-- event -->
-            <div class="event">
-              <div class="event-day">
-                <div>
-                  <span class="day">16</span>
-                  <span class="year">Feb, 2018</span>
-                </div>
-              </div>
-              <div class="event-content">
-                <p class="event-time"><i class="fa fa-clock-o"></i> 8 : 00 AM - 11 : 00 AM</p>
-                <h3 class="event-title">His id altera fabellas facilisis. Has eros assueverit cu</h3>
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore
-                  et dolore magna aliqua.</p>
-                <p>By <a href="#">John Doe</a></p>
-              </div>
-            </div>
-            <!-- /event -->
-
-            <!-- event -->
-            <div class="event">
-              <div class="event-hour"></div>
-              <div class="event-content">
-                <p class="event-time"><i class="fa fa-clock-o"></i> 8 : 00 AM - 11 : 00 AM</p>
-                <h3 class="event-title">At mucius deserunt delicatissimi eam, labitur detraxit ut sit</h3>
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore
-                  et dolore magna aliqua.</p>
-                <p>By <a href="#">John Doe</a></p>
-              </div>
-            </div>
-            <!-- /event -->
-
-            <!-- event -->
-            <div class="event">
-              <div class="event-day">
-                <div>
-                  <span class="day">17</span>
-                  <span class="year">Feb, 2018</span>
-                </div>
-              </div>
-              <div class="event-content">
-                <p class="event-time"><i class="fa fa-clock-o"></i> 8 : 00 AM - 11 : 00 AM</p>
-                <h3 class="event-title">His id altera fabellas facilisis. Has eros assueverit cu</h3>
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore
-                  et dolore magna aliqua.</p>
-                <p>By <a href="#">John Doe</a></p>
-              </div>
-            </div>
-            <!-- /event -->
-
-            <!-- event -->
-            <div class="event">
-              <div class="event-hour"></div>
-              <div class="event-content">
-                <p class="event-time"><i class="fa fa-clock-o"></i> 8 : 00 AM - 11 : 00 AM</p>
-                <h3 class="event-title">At mucius deserunt delicatissimi eam, labitur detraxit ut sit</h3>
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore
-                  et dolore magna aliqua.</p>
-                <p>By <a href="#">John Doe</a></p>
-              </div>
-            </div>
-            <!-- /event -->
-          </div>
-
-          <div class="download-btn">
-            <a href="#" class="main-btn">Download Schedule</a>
-          </div>
-
-        </div>
-      </div>
-      <!-- /row -->
-    </div>
-    <!-- /container -->
-  </div>
-  <!-- /Event Schedule -->
-
-
-  <!---  Testimonials Section  --->
-  <section id="testimonials">
-    <div class="container">
-      <h3 class="title text-center">TESTIMONIALS</h3>
-      <div class="row offset-1">
-        <div class="col-md-5 testimonials">
-          <p class="feedback">"Lorem ipsum dolor sit amet, consectetur adipiscing elit,
-            sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-            quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."
-          </p>
-          <img src="/static/base/images/testimonials/testimonial-1.jpg" alt="">
-          <p class="user-details"><b>James</b><br>CEO at DIN</p>
-        </div>
-        <div class="col-md-5 testimonials">
-          <p class="feedback">"Lorem ipsum dolor sit amet, consectetur adipiscing elit,
-            sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-            quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."
-          </p>
-          <img src="/static/base/images/testimonials/testimonial-3.jpg" alt="">
-          <p class="user-details"><b>William</b><br>Co-founder at ArtSpace</p>
-        </div>
-      </div>
-    </div>
-  </section>
   <!-- Footer ------>
   <section id="footer">
     <div class="container">
       <div class="row">
         <div class="col-md-4 footer-box">
           <img src="/static/base/images/logo.png" alt="">
-          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit,
-            sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+          <p>E-Cell of TBIF (Technology Business Incubation Foundation), IIT ROPAR is a non-profit organisation managed
+            by team of students. We help budding entrepreneurs by offering them co-working space, advance computing
+            facilities, seed funding, mentorship from experts and other resources required to incubate a company.
           </p>
-          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
         </div>
         <div class="col-md-4 footer-box">
 
@@ -339,8 +185,7 @@
           <p><i class="fa fa-envelope-o"></i>director@iitrpr.ac.in</p>
         </div>
         <div class="col-md-6 ">
-          <p class="copyright">Copyright © 2019. All rights reserved | Designed by <a
-              href="https://www.salvatoremandis.it/index-eng.html">Salvatore Mandis</a></p>
+          <p class="copyright">Copyright © 2019. All rights reserved | Ecell IIT Ropar</p>
         </div>
         <div class="col-md-6 text-right">
           <!-- <p class="copyright">

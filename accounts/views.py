@@ -7,30 +7,9 @@ from django.contrib.auth import login, authenticate, logout
 from django.contrib.auth.decorators import login_required
 
 
-# def loginView(request):
-#     # Checking If the User is already Logged In
-#     message = ''
-#     if( request.method == 'POST'):
-#         form = forms.LoginForm(request.POST)
-#         if( form.is_valid() ):
-#             user = authenticate(request, username=form.cleaned_data['username'], password=form.cleaned_data['password'])
-#             if( user ):
-#                 login(request, user)
-#                 return checkAndRedirect(request.user)
-#             else:
-#                 message = 'Invalid Username Or Password'
-                
-#     return render(request, 'accounts/signin.html', context)
-
-
-
-@login_required(login_url='/accounts/login/')
-def logoutView(request):
-    logout(request)
-    return render(request, 'accounts/logout.html')
-
-
 def companySignUpView(request):
+    if( request.user.is_authenticated ):
+        return HttpResponseRedirect(reverse('home'))
     error_msg = ""
     if( request.method == 'POST'):
         form = forms.CompanySignUpForm(request.POST)
@@ -54,12 +33,14 @@ def companySignUpView(request):
                 if( user ):
                     login(request, user)
                     message = "You are successfully registered"
-                    return HttpResponseRedirect(reverse('main:home', args=(message,)))
+                    return HttpResponseRedirect(reverse('home'))
     else:
         form = forms.CompanySignUpForm()
     return render(request, 'accounts/company/signup.html', {"form": form, "error_msg": error_msg}) 
 
 def studentSignUpView(request):
+    if( request.user.is_authenticated ):
+        return HttpResponseRedirect(reverse('home'))
     error_msg = ""
     if( request.method == 'POST'):
         form = forms.StudentSignUpForm(request.POST)
@@ -83,7 +64,14 @@ def studentSignUpView(request):
                 if( user ):
                     login(request, user)
                     message = "You are successfully registered"
-                    return HttpResponseRedirect(reverse('home', args=(message,)))
+                    return HttpResponseRedirect(reverse('home'))
     else:
         form = forms.StudentSignUpForm()
     return render(request, 'accounts/student/signup.html', {"form": form, "error_msg": error_msg}) 
+
+
+
+@login_required(login_url='/accounts/login/')
+def logoutView(request):
+    logout(request)
+    return HttpResponseRedirect(reverse('home'))
