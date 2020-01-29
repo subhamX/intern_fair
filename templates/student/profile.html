@@ -2,7 +2,7 @@
 <html lang="en">
 
 <head>
-	<title>STUDENT REGISTER || ECELL</title>
+	<title>STUDENT PROFILE || ECELL</title>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<!--===============================================================================================-->
@@ -29,30 +29,46 @@
 	<link rel="stylesheet" href="/static/base/css/style.css">
 	<!--===============================================================================================-->
 
-	
 </head>
+<style>
+	#id_profiles_offered {
+		/* color: red; */
+		/* background-color: blue; */
+		border: none;
+	}
+</style>
 
 <body>
 	{% include "main/navbar.html" %}
-
 
 	<div class="limiter">
 		<div class="container-login100">
 			<div class="wrap-login100">
 				<div class="login100-form-title" style="background-image: url(/static/accounts/images/bg-01.jpg);">
 					<span class="login100-form-title-1">
-						STUDENT SIGN UP
+						STUDENT PROFILE
 					</span>
 				</div>
-
-				<form class="login100-form validate-form" method="POST" action="/accounts/s/signup/">
+				{% if mark_flag %}
+					<marquee width="90%" direction="left" height="20px">
+						You will be contacted by our representative shortly.
+					</marquee>
+				{% endif %}
+				<form class="login100-form validate-form" method="POST" action="/c/profile/">
 					{% csrf_token %}
+					{% if success_msg %}
+					<div class="successMsg">
+						<td style="color: green">
+							{{success_msg}}
+						</td>
+					</div>
+					{% endif %}
 					{% if form.errors or error_msg %}
 					<div class="errorMsg">
 						<td style="color: red">
 							{{error_msg}}
 							{% for field in form.visible_fields %}
-								{{ field.errors }}
+							{{ field.errors }}
 							{% endfor %}
 						</td>
 					</div>
@@ -60,17 +76,24 @@
 
 					{% for field in form.visible_fields %}
 					<tr>
-						<div class="wrap-input100 validate-input m-b-26" data-validate="">
+						<div class="wrap-input100 m-b-26" data-validate="">
 							<span class="label-input100">{{ field.label_tag }}</span>
 							{{ field }}
 							<span class="focus-input100"></span>
 						</div>
-
 					</tr>
 					{% endfor %}
+
+					<!-- {% for value, text in form.providers.field.choices %}
+					<div class="ui slider checkbox">
+						<input id="id_providers_{{ forloop.counter0 }}" name="{{ form.providers.name }}" type="checkbox"
+							value="{{ value }}" {% if value in checked_providers %} checked="checked" {% endif %}>
+						<label>{{ text }}</label>
+					</div>
+					{% endfor %} -->
 					<div class="container-login100-form-btn">
 						<button class="login100-form-btn">
-							SIGN UP
+							SAVE DATA
 						</button>
 					</div>
 				</form>

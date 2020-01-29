@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Intern Fair | IIT Ropar</title>
+  <link rel="stylesheet" href="/static/base/css/style.css">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css">
+  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js"></script>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link rel="shortcut icon" href="/static/base/images/logo.png">
+  <style>
+    .body {
+        margin: 0px;;
+    }
+    .jumbotron{
+        text-align: center; height: 400px;;
+    }
+    #footer {
+        position: fixed;
+        height: 330px;
+        background-color: red;
+        bottom: 0px;
+        left: 0px;
+        right: 0px;
+        margin-bottom: 0px;
+    }
+    </style>
+</head>
+
+
+<body>
+  {% include 'main/navbar.html' %}
+
+  <!--- Banner Hero section ------->
+  <section>
+      <div class="jumbotron" style="text-transform: capitalize; font-weight: bold; vertical-align: center; text-align: center;">
+          <h1>
+              You have been succesfully registered
+          </h1>
+      </div>
+    
+      
+  </section>
+  {% include 'main/footer.html' %}
+  <!--- Smooth Scroll js ---------->
+  <script type="text/javascript" src="/static/base/js/smooth-scroll.js"></script>
+  <script>
+    var scroll = new SmoothScroll('a[href*="#"]');
+  </script>
+</body>
+
+</html>

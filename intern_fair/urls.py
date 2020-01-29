@@ -20,10 +20,10 @@ from student import urls as studentUrls
 from company import urls as companyUrls
 from intern_fair import views
 
-app_name = "main"
 
 urlpatterns = [
     path('', views.home, name="home"),
+    path('profile/', views.profile, name="profile"),
     path('admin/', admin.site.urls),
     path('accounts/', include(accountUrls)),
     path('s/', include(studentUrls)),

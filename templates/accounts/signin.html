@@ -2,7 +2,7 @@
 <html lang="en">
 
 <head>
-	<title>STUDENT REGISTER || ECELL</title>
+	<title>SIGNIN || ECELL</title>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<!--===============================================================================================-->
@@ -28,32 +28,27 @@
 	<link rel="stylesheet" type="text/css" href="/static/accounts/css/main.css">
 	<link rel="stylesheet" href="/static/base/css/style.css">
 	<!--===============================================================================================-->
-
 	
 </head>
 
 <body>
 	{% include "main/navbar.html" %}
 
-
 	<div class="limiter">
 		<div class="container-login100">
 			<div class="wrap-login100">
 				<div class="login100-form-title" style="background-image: url(/static/accounts/images/bg-01.jpg);">
 					<span class="login100-form-title-1">
-						STUDENT SIGN UP
+						SIGN IN
 					</span>
 				</div>
 
-				<form class="login100-form validate-form" method="POST" action="/accounts/s/signup/">
+				<form class="login100-form validate-form" method="POST" action="/accounts/signin/">
 					{% csrf_token %}
 					{% if form.errors or error_msg %}
 					<div class="errorMsg">
 						<td style="color: red">
 							{{error_msg}}
-							{% for field in form.visible_fields %}
-								{{ field.errors }}
-							{% endfor %}
 						</td>
 					</div>
 					{% endif %}
@@ -77,8 +72,40 @@
 			</div>
 		</div>
 	</div>
-	{% include "main/footer.html" %}
-
+	<section id="footer">
+		<div class="container">
+		  <div class="row">
+			<div class="col-md-4 footer-box">
+			  <img src="/static/base/images/logo.png" alt="">
+			  <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit,
+				sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+			  </p>
+			  <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+			</div>
+			<div class="col-md-4 footer-box">
+	
+			</div>
+			<div class="col-md-4 footer-box">
+			  <p id="contact"><b>OUR ADDRESS</b></p>
+			  <p><i class="fa fa-map-marker"></i>Indian Institute of Technology Ropar, 140001, Rupnagar, Punjab, India</p>
+			  <p><i class="fa fa-phone"></i>0188 124 2105</p>
+			  <p><i class="fa fa-envelope-o"></i>director@iitrpr.ac.in</p>
+			</div>
+			<div class="col-md-6 ">
+			  <p class="copyright">Copyright © 2019. All rights reserved | Designed by <a
+				  href="https://www.salvatoremandis.it/index-eng.html">Salvatore Mandis</a></p>
+			</div>
+			<div class="col-md-6 text-right">
+			  <!-- <p class="copyright">
+				  <a href="#">Privacy Policy</a>
+				  <a href="#">Cookie Policy</a>
+				  <a href="#">Terms & Conditions</a>
+				</p> -->
+			</div>
+		  </div>
+		  <br>
+		</div>
+	  </section>
 
 	<!--===============================================================================================-->
 	<script src="/static/accounts/vendor/jquery/jquery-3.2.1.min.js"></script>

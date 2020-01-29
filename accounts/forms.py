@@ -13,8 +13,13 @@ entry_number_validator = RegexValidator(regex=entry_number_re, message='Invalid 
 iitrpr_email_validator = RegexValidator(regex=iitrpr_email_re, message='Email provider should be IITRPR')
 
 
+class LoginForm(forms.Form):
+    username = forms.CharField(max_length=40, widget=forms.TextInput(attrs = { 'class': 'input100', 'placeholder': 'Email'}))
+    password = forms.CharField(widget=forms.PasswordInput(attrs = { 'class': 'input100', 'placeholder': 'Password'}))
+
+
 class CompanySignUpForm(forms.ModelForm):
-    company_name = forms.CharField(max_length=100, widget=forms.TextInput(attrs = { 'class': 'input100', 'placeholder': 'Comapny Name'}))
+    company_name = forms.CharField(max_length=100, widget=forms.TextInput(attrs = { 'class': 'input100', 'placeholder': 'Company Name'}))
     email = forms.EmailField(widget=forms.TextInput(attrs = { 'class': 'input100','placeholder':'Email-ID'}))
     contact_number = forms.IntegerField(widget=forms.NumberInput(attrs = { 'class': 'input100','placeholder':'Contact Number'}), validators= [phone_validator] )
     website_link = forms.URLField(widget=forms.URLInput(attrs = { 'class': 'input100','placeholder':'Link'}), initial='http://')

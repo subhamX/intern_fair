@@ -1,10 +1,12 @@
 from django.db import models
 from django.contrib.auth.models import User
 
+
 # Create your models here.
 class Profile(models.Model):
     # if True then the user is student
-    is_student = models.BooleanField(default=True) 
+    is_student = models.BooleanField(default=True)
+    user = models.OneToOneField(User, on_delete=models.CASCADE)
 
 
 class CompanyProfile(models.Model):
@@ -12,6 +14,7 @@ class CompanyProfile(models.Model):
     email = models.EmailField()
     contact_number = models.IntegerField()
     website_link = models.URLField()
+
 
 class StudentProfile(models.Model):
     name = models.CharField(max_length=100)
