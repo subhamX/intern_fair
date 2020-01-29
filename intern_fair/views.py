@@ -10,6 +10,17 @@ def home(request):
     message = ""
     return render(request, 'base/index.html', {"message": message}) 
 
+
+def profile(request):
+    if(request.user.is_authenticated):
+        profile = models.Profile.objects.get(user=request.user)
+        if(profile.is_student):
+            return HttpResponseRedirect(reverse('student:profile'))
+        else:
+            return HttpResponseRedirect(reverse('company:profile'))
+    else:
+        return HttpResponseRedirect(reverse('home'))
+
 def studentSignUpView(request):
     error_msg = ""
     if( request.method == 'POST'):
@@ -37,3 +48,5 @@ def studentSignUpView(request):
     else:
         form = forms.StudentSignUpForm()
     return render(request, 'accounts/student/signup.html', {"form": form, "error_msg": error_msg}) 
+
+

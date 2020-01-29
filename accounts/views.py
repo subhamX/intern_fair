@@ -7,6 +7,39 @@ from django.contrib.auth import login, authenticate, logout
 from django.contrib.auth.decorators import login_required
 
 
+
+def checkAndRedirect(user):
+    profileInstance = models.Profile.objects.get(user=user)
+    if( profileInstance.is_student == True):
+        return HttpResponseRedirect(reverse('student:home'))
+    else:
+        return HttpResponseRedirect(reverse('company:home'))
+
+
+
+def loginView(request):
+    # Checking If the User is already Logged In
+    message = ''
+    if( request.user.is_authenticated ):
+        return checkAndRedirect(request.user)
+    if( request.method == 'POST'):
+        form = forms.LoginForm(request.POST)
+        if( form.is_valid() ):
+            user = authenticate(request, username=form.cleaned_data['username'], password=form.cleaned_data['password'])
+            if( user ):
+                login(request, user)
+                return checkAndRedirect(request.user)
+            else:
+                message = 'Invalid Username Or Password'
+                
+    context = {
+        'form': forms.LoginForm(),
+        'error_msg': message,
+    }
+    return render(request, 'accounts/signin.html', context)
+
+
+
 def companySignUpView(request):
     if( request.user.is_authenticated ):
         return HttpResponseRedirect(reverse('home'))
@@ -19,9 +52,7 @@ def companySignUpView(request):
             # Only after instance is saved We can access id
             instance.save()
 
-            # Creating Profile Instance for the new user as student
-            profileInstance = models.Profile(is_student=False)
-            profileInstance.save()
+            
             old_user = User.objects.filter(username=form.cleaned_data['email'])
             if(old_user):
                 error_msg = "User with specified Email Id Already Exists"
@@ -29,11 +60,16 @@ def companySignUpView(request):
                 user = User(username=form.cleaned_data['email'])
                 user.set_password(form.cleaned_data['password'])
                 user.save()
+                # Creating Profile Instance for the new user as student
+                profileInstance = models.Profile(is_student=False)
+                profileInstance.user = user
+                profileInstance.save()
                 user = authenticate(request, username=form.cleaned_data['email'], password=form.cleaned_data['password'])
                 if( user ):
                     login(request, user)
                     message = "You are successfully registered"
-                    return HttpResponseRedirect(reverse('home'))
+                    return HttpResponseRedirect(reverse('company:profile'))
+
     else:
         form = forms.CompanySignUpForm()
     return render(request, 'accounts/company/signup.html', {"form": form, "error_msg": error_msg}) 
@@ -50,9 +86,7 @@ def studentSignUpView(request):
             # Only after instance is saved We can access id
             instance.save()
 
-            # Creating Profile Instance for the new user as student
-            profileInstance = models.Profile(is_student=True)
-            profileInstance.save()
+
             old_user = User.objects.filter(username=form.cleaned_data['email'])
             if(old_user):
                 error_msg = "User with specified Email Id Already Exists"
@@ -60,11 +94,15 @@ def studentSignUpView(request):
                 user = User(username=form.cleaned_data['email'])
                 user.set_password(form.cleaned_data['password'])
                 user.save()
+                # Creating Profile Instance for the new user as student
+                profileInstance = models.Profile(is_student=True)
+                profileInstance.user = user
+                profileInstance.save()
                 user = authenticate(request, username=form.cleaned_data['email'], password=form.cleaned_data['password'])
                 if( user ):
                     login(request, user)
                     message = "You are successfully registered"
-                    return HttpResponseRedirect(reverse('home'))
+                    return HttpResponseRedirect(reverse('student:profile'))
     else:
         form = forms.StudentSignUpForm()
     return render(request, 'accounts/student/signup.html', {"form": form, "error_msg": error_msg}) 
