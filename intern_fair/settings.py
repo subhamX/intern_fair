@@ -15,6 +15,7 @@ import config
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
+DEBUG = True
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/3.0/howto/deployment/checklist/
@@ -23,7 +24,6 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = '=u(z^!m&vp5h1-*m_2r_+m=(+d*azes1ht$w1_logaj296o+k@'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
 
 ALLOWED_HOSTS = ['*']
 
@@ -84,8 +84,9 @@ WSGI_APPLICATION = 'intern_fair.wsgi.application'
 #     }
 # }
 
-
 if os.getenv('GAE_APPLICATION', None):
+    DEBUG = False
+
     # Running on production App Engine, so connect to Google Cloud SQL using
     # the unix socket at /cloudsql/<your-cloudsql-connection string>
     DATABASES = {

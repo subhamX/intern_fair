@@ -46,3 +46,6 @@ class CompanyData(models.Model):
     other_incentive = models.CharField(max_length=1000, null=True)
     requirements = models.CharField(max_length=1000, null=True)
     reference = models.CharField(max_length=1000, null=True)
+
+    def __str__(self):
+        return self.user.company_name
