@@ -49,10 +49,6 @@ def companySignUpView(request):
         if( form.is_valid() ):
             print(form.cleaned_data['email'])
             instance = form.save(commit=False)
-            # Only after instance is saved We can access id
-            instance.save()
-
-            
             old_user = User.objects.filter(username=form.cleaned_data['email'])
             if(old_user):
                 error_msg = "User with specified Email Id Already Exists"
@@ -64,6 +60,9 @@ def companySignUpView(request):
                 profileInstance = models.Profile(is_student=False)
                 profileInstance.user = user
                 profileInstance.save()
+                # Adding user mapping to companyProfile
+                instance.user = user
+                instance.save()
                 user = authenticate(request, username=form.cleaned_data['email'], password=form.cleaned_data['password'])
                 if( user ):
                     login(request, user)
@@ -84,8 +83,6 @@ def studentSignUpView(request):
             print(form.cleaned_data['email'])
             instance = form.save(commit=False)
             # Only after instance is saved We can access id
-            instance.save()
-
 
             old_user = User.objects.filter(username=form.cleaned_data['email'])
             if(old_user):
@@ -98,6 +95,9 @@ def studentSignUpView(request):
                 profileInstance = models.Profile(is_student=True)
                 profileInstance.user = user
                 profileInstance.save()
+                # Adding user mapping to studentProfile
+                instance.user = user
+                instance.save()
                 user = authenticate(request, username=form.cleaned_data['email'], password=form.cleaned_data['password'])
                 if( user ):
                     login(request, user)

@@ -8,6 +8,11 @@ from django.contrib.auth import login, authenticate, logout
 from django.contrib.auth.decorators import login_required
 # Create your views here.
 
+
+def guidelines(request):
+    return render(request, 'student/guidelines.html')
+
+
 def profile(request):
     # Checking If the User is already Logged In
     if(not request.user.is_authenticated):

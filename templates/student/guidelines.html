@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Intern Fair </title>
+  <link rel="stylesheet" href="/static/base/css/style.css">
+  <link href="https://fonts.googleapis.com/css?family=Raleway&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css">
+  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js"></script>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link rel="shortcut icon" href="/static/base/images/logo.png">
+</head>
+<style>
+  .link-play-buttons button {
+    padding: 15px;
+    margin: 10px;
+    font-size: 20px;
+  }
+
+  .btn-register {
+    background: #1c0c35;
+    color: #ffffff !important;
+    font-weight: bold;
+    border: 2px solid #8a57db;
+    padding: 20px;
+    text-transform: uppercase;
+    border-radius: 6px;
+    display: inline-block;
+    transition: all 0.3s ease 0s;
+  }
+
+  .btn-register:hover {
+    /* color: #1c0c35 !important; */
+    background: #8a57db !important;
+    font-weight: 700 !important;
+    letter-spacing: 3px;
+    text-decoration: none;
+    background: none;
+    -webkit-box-shadow: 0px 5px 40px -10px rgba(0, 0, 0, 0.57);
+    -moz-box-shadow: 0px 5px 40px -10px rgba(0, 0, 0, 0.57);
+    transition: all 0.3s ease 0s;
+  }
+
+  #register-section {
+    background-color: #1c0c35;
+    height: 45vh;
+    scroll-padding-top: 300px;
+    text-align: center;
+  }
+
+  .heading-register {
+    padding-top: 60px !important;
+  }
+
+  #register-section .container .row .btn-register {
+    margin-bottom: 15px;
+  }
+
+  .heading-register {
+    color: white;
+    padding: 30px;
+    font-weight: bold;
+    font-size: 35px;
+  }
+
+  .btn-guidelines {
+    color: white;
+    /* border: 1px ; */
+  }
+
+  .btn-guidelines:hover {
+    color: yellow;
+    box-shadow: yellow;
+  }
+
+  .wrapper-btns {
+    margin: 10px 0;
+  }
+
+  @media only screen and (max-width: 780px) {
+    #register-section {
+      height: 60vh;
+    }
+  }
+</style>
+
+<body>
+  {% include "main/navbar.html" %}
+
+  <!--- About Section ------>
+  <section id="about">
+    <div class="container">
+      <h3 class="title text-center"><b>STUDENT GUIDELINES</b></h3>
+      <div class="row">
+        <div class="col-md-12 about" style="margin-top: 30px;">
+
+          <!-- Fill the primary details including Name, College Name, 10th Percentage, 12th Percentage,
+Graduation CG/Percentage (most recent) in the online form. Also, upload your updated
+Resume on the same.
+ E-Cell does not guarantee assured internship.
+ You are supposed to provide valid proofs for all the points mentioned in your resume to the
+company afterwards. In case of invalid information, the candidate will be blacklisted from all
+upcoming events conducted by the institute and respective company policy will be applied.
+ Shortlisted candidates will be informed about the interview timings and venue through
+telephonic communication.
+ Shortlisted candidates must attend the interview as per the scheduled timings conveyed by
+the E-Cell team, failure to do the same will lead to disqualification from the process.
+ Applicants cannot contact the HR or any other employee of the companies presented in the
+summit. All communications to the companies will be directed through E-Cell.
+ In case of any dispute, the decision of E-Cell will be deemed final. -->
+          <ul>
+            <li>
+              Fill the primary details including Name, College Name, 10th Percentage, 12th Percentage,
+              Graduation CG/Percentage (most recent) in the online form. Also, upload your updated
+              Resume on the same.
+            </li>
+            <li>E-Cell does not guarantee assured internship.</li>
+            <li>You are supposed to provide valid proofs for all the points mentioned in your resume to the
+              company afterwards. In case of invalid information, the candidate will be blacklisted from all
+              upcoming events conducted by the institute and respective company policy will be applied.</li>
+            <li>Shortlisted candidates will be informed about the interview timings and venue through
+              telephonic communication.</li>
+            <li>Applicants cannot contact the HR or any other employee of the companies presented in the
+              summit. All communications to the companies will be directed through E-Cell.</li>
+            <li>In case of any dispute, the decision of E-Cell will be deemed final.</li>
+          </ul>
+        </div>
+        <div class="col-md-6">
+          <img src="/static/base/svg/undraw_mobile_marketing_iqbr.svg" class="img-fluid" alt="">
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  {% include "main/footer.html" %}
+
+  <!--- Smooth Scroll js ---------->
+  <script type="text/javascript" src="/static/base/js/smooth-scroll.js"></script>
+  <script>
+    var scroll = new SmoothScroll('a[href*="#"]');
+  </script>
+</body>
+
+</html>

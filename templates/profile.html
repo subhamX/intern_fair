@@ -2,108 +2,118 @@
 <html lang="en">
 
 <head>
-	<title>SIGNIN || ECELL</title>
+	<title>STARTUP PROFILE || ECELL</title>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-	
-	<link rel="icon" type="image/png" href="/static/accounts/images/icons/favicon.ico" />
 	<link href="https://fonts.googleapis.com/css?family=Raleway&display=swap" rel="stylesheet">
-	
+	<link rel="icon" type="image/png" href="/static/accounts/images/icons/favicon.ico" />
+
 	<link rel="stylesheet" type="text/css" href="/static/accounts/vendor/bootstrap/css/bootstrap.min.css">
-	
+
 	<link rel="stylesheet" type="text/css" href="/static/accounts/fonts/font-awesome-4.7.0/css/font-awesome.min.css">
-	
+
 	<link rel="stylesheet" type="text/css" href="/static/accounts/fonts/Linearicons-Free-v1.0.0/icon-font.min.css">
-	
+
 	<link rel="stylesheet" type="text/css" href="/static/accounts/vendor/animate/animate.css">
-	
+
 	<link rel="stylesheet" type="text/css" href="/static/accounts/vendor/css-hamburgers/hamburgers.min.css">
-	
+
 	<link rel="stylesheet" type="text/css" href="/static/accounts/vendor/animsition/css/animsition.min.css">
-	
+
 	<link rel="stylesheet" type="text/css" href="/static/accounts/vendor/select2/select2.min.css">
-	
+
 	<link rel="stylesheet" type="text/css" href="/static/accounts/vendor/daterangepicker/daterangepicker.css">
-	
+
 	<link rel="stylesheet" type="text/css" href="/static/accounts/css/util.css">
 	<link rel="stylesheet" type="text/css" href="/static/accounts/css/main.css">
 	<link rel="stylesheet" href="/static/base/css/style.css">
-	
-	
-</head>
 
+
+</head>
 <style>
-	.already_user {
-		margin-top: 9px;
-		text-align: right;
-		width: 100%;
+	#id_profiles_offered {
+		/* color: red; */
+		/* background-color: blue; */
+		border: none;
+	}
+
+	textarea {
+		/* margin: 100 !important; */
+		border: 1px solid grey;
+		size: fix;
+		resize: none;
+		padding: 6px !important;
+		/* background-color: blue !important; */
+	}
+
+	.field_name {
+		font-weight: bold;
+	}
+
+	.field_data {}
+
+	.data-container {
+		margin: 10px;
+	}
+
+	.data-content {
+		border-radius: 10px;
+		padding: 15px 10px;
+		background-color: lightgrey;
 	}
 </style>
+
 <body>
 	{% include "main/navbar.html" %}
-
 	<div class="limiter">
 		<div class="container-login100">
 			<div class="wrap-login100">
-				<div class="login100-form-title" style="background-image: url(/static/accounts/images/signin.png);">
+				<div class="login100-form-title" style="background-image: url(/static/accounts/images/bg-01.jpg);">
 					<span class="login100-form-title-1">
-						SIGN IN
+						COMPANY PROFILE
 					</span>
 				</div>
-
-				<form class="login100-form validate-form" method="POST" action="/accounts/signin/">
-					{% csrf_token %}
-					{% if form.errors or error_msg %}
-					<div class="errorMsg">
-						<td style="color: red">
-							{{error_msg}}
-						</td>
-					</div>
-					{% endif %}
-
-					{% for field in form.visible_fields %}
-					<tr>
-						<div class="wrap-input100 validate-input m-b-26" data-validate="">
-							<span class="label-input100">{{ field.label_tag }}</span>
-							{{ field }}
-							<span class="focus-input100"></span>
+				<center>
+					<marquee width="90%" direction="left" height="30px" style="font-weight: bold; font-size: 20px;">
+						Thank you for your response. Our team will revert back to you shortly.
+					</marquee>
+				</center>
+				{% for field in form.visible_fields %}
+				<tr>
+					<div class="data-container container" data-validate="">
+						<div class="data-content">
+							<span class="field_name">
+								{{ field.label }} :
+							</span>
+							<span class="field_data">
+								{{ field.value }}
+							</span>
 						</div>
 
-					</tr>
-					{% endfor %}
-					<div class="container-login100-form-btn">
-						<button class="login100-form-btn">
-							SIGN IN
-						</button>
 					</div>
-					<div class="already_user">
-						<p>Not registered yet?
-							<span><a href="/#register-section" style="font-weight: bold;">Register Here</a>
-							</span>
-						</p>
-					</div>
-				</form>
+				</tr>
+				{% endfor %}
 			</div>
 		</div>
 	</div>
 	{% include "main/footer.html" %}
 
 
-	
+
 	<script src="/static/accounts/vendor/jquery/jquery-3.2.1.min.js"></script>
-	
+
 	<script src="/static/accounts/vendor/animsition/js/animsition.min.js"></script>
-	
+
 	<script src="/static/accounts/vendor/bootstrap/js/popper.js"></script>
 	<script src="/static/accounts/vendor/bootstrap/js/bootstrap.min.js"></script>
-	
+
 	<script src="/static/accounts/vendor/select2/select2.min.js"></script>
-	
+
 	<script src="/static/accounts/vendor/daterangepicker/moment.min.js"></script>
 	<script src="/static/accounts/vendor/daterangepicker/daterangepicker.js"></script>
-	
+
 	<script src="/static/accounts/vendor/countdowntime/countdowntime.js"></script>
-	
+
 	<script src="/static/accounts/js/main.js"></script>
 
 </body>

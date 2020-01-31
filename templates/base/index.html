@@ -66,6 +66,23 @@
     font-weight: bold;
     font-size: 35px;
   }
+  .btn-guidelines{
+    color: white;
+    /* border: 1px ; */
+  }
+
+  .btn-guidelines:hover{
+    color: yellow;
+    box-shadow: yellow;
+  }
+  .wrapper-btns{
+    margin: 10px 0;
+  }
+  @media only screen and (max-width: 780px){
+    #register-section{
+      height: 60vh;
+    }
+  }
 </style>
 
 <body>
@@ -83,33 +100,46 @@
           {% endif %}
 
         </div>
-        <div class="col-md-6">
+        <div class="col-md-6" >
           <img src="/static/base/svg/undraw_email_campaign_qa8y.svg" alt="" class="img-fluid">
         </div>
       </div>
     </div>
     <!--- Background wave Hero ---->
-    <img src="/static/base/images/ground@-min.png" class="bottom-img" alt="">
+    <img src="/static/base/images/ground@-min.png" class="bottom-img" alt="" id="register">
   </section>
 
-  {% if not user.is_authenticated %}
   <section id="register-section">
     <div class="heading-register">
       REGISTER AS
     </div>
     <div class="container">
       <div class="row">
-        <div class="col-md-4 col-sm-12">
-          <a href="{% url 'accounts:company_signup' %}" class="btn-register">COMPANY</a>
+        <div class="col-md-6 col-sm-12 wrapper-btns">
+          <div class="row">
+            <div class="col-md-12">
+              <a href="{% url 'accounts:company_signup' %}" class="btn-register">COMPANY</a>
+            </div>
+            <div class="col-md-12">
+              <a href="{% url 'company:guidelines' %}" class="btn-guidelines">COMPANY GUIDELINES</a>
+            </div>
+          </div>
         </div>
-        <div class="col-md-4 col-sm-12"></div>
-        <div class="col-md-4 col-sm-12">
-          <a href="{% url 'accounts:student_signup' %}" class="btn-register">STUDENT</a>
+        <div class="col-md-6 col-sm-12 wrapper-btns">
+          <div class="row">
+            <div class="col-sm-12">
+              <a href="{% url 'accounts:student_signup' %}" class="btn-register">STUDENT</a>
+            </div>
+            <div class="col-md-12">
+              <a href="{% url 'student:guidelines' %}" class="btn-guidelines">STUDENT GUIDELINES</a>
+            </div>
+          </div>
         </div>
+
+
       </div>
     </div>
   </section>
-  {% endif %}
   <!--- About Section ------>
   <section id="about">
     <div class="container">
@@ -166,7 +196,7 @@
 
 
   {% include "main/footerHome.html" %}
-  
+
   <!--- Smooth Scroll js ---------->
   <script type="text/javascript" src="/static/base/js/smooth-scroll.js"></script>
   <script>
