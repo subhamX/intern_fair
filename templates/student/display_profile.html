@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>STUDENT PROFILE || ECELL</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="https://fonts.googleapis.com/css?family=Raleway&display=swap" rel="stylesheet">
+    <link rel="icon" type="image/png" href="/static/accounts/images/icons/favicon.ico" />
+    <link rel="stylesheet" type="text/css" href="/static/accounts/vendor/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="/static/accounts/fonts/font-awesome-4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" type="text/css" href="/static/accounts/fonts/Linearicons-Free-v1.0.0/icon-font.min.css">
+    <link rel="stylesheet" type="text/css" href="/static/accounts/vendor/animate/animate.css">
+    <link rel="stylesheet" type="text/css" href="/static/accounts/vendor/css-hamburgers/hamburgers.min.css">
+    <link rel="stylesheet" type="text/css" href="/static/accounts/vendor/animsition/css/animsition.min.css">
+    <link rel="stylesheet" type="text/css" href="/static/accounts/vendor/select2/select2.min.css">
+    <link rel="stylesheet" type="text/css" href="/static/accounts/vendor/daterangepicker/daterangepicker.css">
+    <link rel="stylesheet" type="text/css" href="/static/accounts/css/util.css">
+    <link rel="stylesheet" type="text/css" href="/static/accounts/css/main.css">
+    <link rel="stylesheet" href="/static/base/css/style.css">
+
+
+</head>
+<style>
+    #id_profiles_offered {
+        /* color: red; */
+        /* background-color: blue; */
+        border: none;
+    }
+
+    textarea {
+        /* margin: 100 !important; */
+        border: 1px solid grey;
+        size: fix;
+        resize: none;
+        padding: 6px !important;
+        /* background-color: blue !important; */
+    }
+
+    .field_name {
+        font-weight: bold;
+    }
+
+
+    .data-container {
+        margin: 10px;
+    }
+
+    .data-content {
+        border-radius: 10px;
+        padding: 15px 10px;
+        background-color: lightgrey;
+    }
+</style>
+
+<body>
+    {% include "main/navbar.html" %}
+    <div class="limiter" >
+        <div class="container-login100">
+            <div class="wrap-login100">
+                <div class="login100-form-title" style="background-image: url(/static/accounts/images/bg-01.jpg);">
+                    <span class="login100-form-title-1">
+                        STUDENT PROFILE
+                    </span>
+                </div>
+                <center>
+                    <marquee width="90%" direction="left" height="30px" style="font-weight: bold; font-size: 20px;">
+                        Thank you for your response.
+                    </marquee>
+                </center>
+
+                {% if not order_status %}
+                        <div class="data-container" data-validate="">
+                            <div class="data-content" style="background-color: white; text-align: center; font-size: 17px;">
+                                <div style="color: blue; background: #ffbf00; padding: 10px; border-radius: 10px;">
+                                    <span class="field_name" >
+                                        You Have Not Paid The Fees Yet. 
+                                        <div><a href='{% url "payments:pay" %}' style="color: black; font-size: 18px;">Click Here</a> to Pay.</div>
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                {% else %}
+                    <tr>
+                        <div class="data-container" data-validate="">
+                            <div class="data-content" style="background-color: white; text-align: center;">
+                                <span class="field_name">
+                                    You Have Successfully Paid The Fees.
+                                </span>
+                            </div>
+                        </div>
+                    </tr>
+                {% endif %}
+                {% for field in data %}
+                <tr>
+                    <div class="data-container" data-validate="">
+                        <div class="data-content">
+                            <span class="field_name">
+                                {{ field.label }} :
+                            </span>
+                            <span class="field_data">
+                                {{ field.value }}
+                            </span>
+                        </div>
+
+                    </div>
+                </tr>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+    {% include "main/footer.html" %}
+
+
+
+    <script src="/static/accounts/vendor/jquery/jquery-3.2.1.min.js"></script>
+
+    <script src="/static/accounts/vendor/animsition/js/animsition.min.js"></script>
+
+    <script src="/static/accounts/vendor/bootstrap/js/popper.js"></script>
+    <script src="/static/accounts/vendor/bootstrap/js/bootstrap.min.js"></script>
+
+    <script src="/static/accounts/vendor/select2/select2.min.js"></script>
+
+    <script src="/static/accounts/vendor/daterangepicker/moment.min.js"></script>
+    <script src="/static/accounts/vendor/daterangepicker/daterangepicker.js"></script>
+
+    <script src="/static/accounts/vendor/countdowntime/countdowntime.js"></script>
+
+    <script src="/static/accounts/js/main.js"></script>
+
+</body>
+
+</html>

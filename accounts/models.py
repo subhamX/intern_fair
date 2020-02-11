@@ -27,6 +27,8 @@ class StudentProfile(models.Model):
     contact_number = models.CharField(max_length=10)
     college_year=models.CharField(max_length=50)
     user = models.OneToOneField(User, on_delete=models.CASCADE, null=True)
+    reg_fees_paid = models.BooleanField(default=False)
+    order_id = models.CharField(max_length=1000, null=True)
     
     def __str__(self):
         return self.name
@@ -40,5 +42,3 @@ class Profile(models.Model):
 
     def __str__(self):
         return self.user.username
-    # company_profile = models.OneToOneField(CompanyProfile, on_delete=models.CASCADE, null=True)
-    # student_profile = models.OneToOneField(StudentProfile, on_delete=models.CASCADE, null=True)

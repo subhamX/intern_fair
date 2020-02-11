@@ -1,3 +1,4 @@
 Django==2.1.14 #This requirement must remain pinned at 2.1.14 until https://github.com/PyMySQL/PyMySQL/issues/790 is resolved
 mysqlclient
 django-multiselectfield
+instamojo_wrapper

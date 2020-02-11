@@ -68,7 +68,10 @@
 						<td style="color: red">
 							{{error_msg}}
 							{% for field in form.visible_fields %}
-								{{ field.errors }}
+							{% if field.errors %}
+								<div style="color: blue">*{{field.label}}</div>
+								<div style="font-size: 15px; font-weight: normal;">{{ field.errors }}</div>
+							{% endif %}
 							{% endfor %}
 						</td>
 					</div>

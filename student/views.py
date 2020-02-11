@@ -20,11 +20,30 @@ def profile(request):
     else:
         profile = accountModels.Profile.objects.filter(user=request.user)
         if(profile[0].is_student):
-            message = ''
+            pro = accountModels.StudentProfile.objects.get(user=request.user)
+            # name = models.CharField(max_length=100)
+            #     entry_number=models.CharField(max_length=200)
+            #     email = models.EmailField()
+            #     contact_number = models.CharField(max_length=10)
+            #     college_year=models.CharField(max_length=50)
+            #     user = models.OneToOneField(User, on_delete=models.CASCADE, null=True)
+            #     reg_fees_paid = models.BooleanField(default=False)
+            #     order_id = models.CharField(max_length=1000, null=True)
+            data = [
+                {"label": "Name", "value": pro.name},
+                {"label": "Email", "value": pro.email},
+                {"label": "Contact Number", "value": pro.contact_number},
+                {"label": "College Year", "value": pro.college_year},
+            ]
             context = {
-                'message': message
+                "data": data,
+                "order_status": pro.reg_fees_paid
             }
-            return render(request, 'message.html', context)
+            # print(type(profile[0]))
+            # print(dir(profile[0]))
+            # for entry in profile[0]:
+            #     print(entry)
+            return render(request, 'student/display_profile.html', context)
     
     
     # success_msg = ''    

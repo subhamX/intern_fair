@@ -40,7 +40,7 @@ def profile(request):
             context = {
                 "form": form
             }
-            return render(request, 'profile.html', context)
+            return render(request, 'company/display_profile.html', context)
         else:
             form = forms.CompanyDataForm()
                 

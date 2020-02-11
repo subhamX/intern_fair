@@ -8,12 +8,7 @@ import re
 phone_re = re.compile(r'^[\d]{10}$')
 phone_validator = RegexValidator(regex=phone_re, message='Invalid phone number')
 
-    # )
-    # address = models.CharField(max_length=1000, null=True)
-    # your_name = models.CharField(max_length=100, null=True)
-    # your_postion = models.CharField(max_length=100, null=True)
-    # description = models.CharField(max_length=1000, null=True)
-    # profiles_offered
+
 class CompanyDataForm(forms.ModelForm):
     your_name = forms.CharField(widget=forms.TextInput(attrs = { 'class': 'input100','placeholder':'Your Name'}), label="Name")
     your_postion = forms.CharField(widget=forms.TextInput(attrs = { 'class': 'input100','placeholder':'Your Position'}), label="Postion")
