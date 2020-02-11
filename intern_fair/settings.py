@@ -21,7 +21,7 @@ DEBUG = True
 # See https://docs.djangoproject.com/en/3.0/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = '=u(z^!m&vp5h1-*m_2r_+m=(+d*azes1ht$w1_logaj296o+k@'
+SECRET_KEY = config.SECRET_KEY
 
 # SECURITY WARNING: don't run with debug turned on in production!
 
@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     'accounts',
     'company',
     'student',
+    'payments',
     'multiselectfield'
 ]
 
@@ -83,7 +84,9 @@ WSGI_APPLICATION = 'intern_fair.wsgi.application'
 #         'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
 #     }
 # }
-
+# DATABASES = {
+#     'default': config.db
+# }
 if os.getenv('GAE_APPLICATION', None):
     DEBUG = False
 

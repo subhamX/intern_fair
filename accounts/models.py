@@ -42,5 +42,3 @@ class Profile(models.Model):
 
     def __str__(self):
         return self.user.username
-    # company_profile = models.OneToOneField(CompanyProfile, on_delete=models.CASCADE, null=True)
-    # student_profile = models.OneToOneField(StudentProfile, on_delete=models.CASCADE, null=True)

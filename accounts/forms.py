@@ -5,10 +5,10 @@ from django.contrib.auth.models import User
 from django.core.validators import RegexValidator
 import re
 
-phone_re = re.compile(r'^[\d]{10}$')
+phone_re = re.compile(r'^(?:(?:\+|0{0,2})91(\s*[\ -]\s*)?|[0]?)?[789]\d{9}|(\d[ -]?){10}\d$')
 entry_number_re = re.compile(r'^2\d\d\d\w\w\w\d\d\d\d$')
 iitrpr_email_re = re.compile(r'^[\w]+@iitrpr.ac.in$')
-phone_validator = RegexValidator(regex=phone_re, message='Phone Number Needs to be exactly 10 digits')
+phone_validator = RegexValidator(regex=phone_re, message='Invalid Phone Number')
 entry_number_validator = RegexValidator(regex=entry_number_re, message='Invalid Entry Number')
 iitrpr_email_validator = RegexValidator(regex=iitrpr_email_re, message='Email provider should be IIT Ropar')
 

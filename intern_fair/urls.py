@@ -19,7 +19,7 @@ from accounts import urls as accountUrls
 from student import urls as studentUrls
 from company import urls as companyUrls
 from intern_fair import views
-
+from payments import urls as paymentsUrls
 
 urlpatterns = [
     path('', views.home, name="home"),
@@ -27,5 +27,6 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('accounts/', include(accountUrls)),
     path('s/', include(studentUrls)),
+    path('payments/', include(paymentsUrls)),
     path('c/', include(companyUrls)),
 ]
