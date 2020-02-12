@@ -8,6 +8,9 @@ from django.contrib.auth import login, authenticate, logout
 from django.contrib.auth.decorators import login_required
 # Create your views here.
 
+def catalog(request):
+    return render(request, "startup/catalog.html")
+
 
 def guidelines(request):
     return render(request, 'student/guidelines.html')
