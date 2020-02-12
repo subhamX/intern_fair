@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>E-cell website</title>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <meta content="" name="keywords">
+    <meta content="" name="description">
+
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,700,700i|Montserrat:300,400,500,700" rel="stylesheet">
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            justify-content: center;
+            min-height: 100vh;
+            background-color: blueviolet;
+        }
+        .cardscontainer {
+            position: relative;
+            width: 90%;
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+            grid-gap: 0 40px;
+            grid-template-rows: auto;
+            padding-top: 20px;
+        }
+        
+        .cardscontainer .box {
+            position: relative;
+            height: 400px;
+            background: #5ec3f2;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border: 1px solid #000;
+            margin-bottom: 20px;
+        }
+        
+        .cardscontainer .box:before {
+            content: '';
+            position: absolute;
+            top: -2px;
+            left: -2px;
+            right: -2px;
+            bottom: -2px;
+            padding-bottom: 20px;
+            background: #fff;
+            transform: skew(2deg, 2deg);
+            z-index: -1;
+        }
+        
+        .cardscontainer .box:nth-child(1)::before {
+            background: linear-gradient(315deg, #ff0057, #e64a19);
+        }
+        
+        .cardscontainer .box:nth-child(3)::before {
+            background: linear-gradient(315deg, yellow, #e64a19);
+        }
+        
+        .cardscontainer .box:nth-child(5)::before {
+            background: linear-gradient(315deg, green, #e64a19);
+        }
+        
+        .cardscontainer .box:nth-child(2)::before {
+            background: linear-gradient(315deg, #ff0057, #e64a19);
+        }
+        
+        .cardscontainer .box:nth-child(4)::before {
+            background: linear-gradient(315deg, yellow, #e64a19);
+        }
+        
+        .cardscontainer .box:nth-child(6)::before {
+            background: linear-gradient(315deg, green, #e64a19);
+        }
+        
+        .content {
+            position: relative;
+            padding: 20px;
+            transform: translateY(40px);
+        }
+        
+        .cardscontainer .box:after {
+            content: '';
+            position: absolute;
+            top: 0px;
+            left: 0px;
+            width: 50%;
+            height: 100%;
+            background: rgba(red, green, blue, .05);
+            pointer-events: none;
+        }
+        
+        .box .content h2 {
+            position: absolute;
+            top: -60px;
+            right: 20px;
+            margin: 0;
+            padding: 0;
+            font-size: 10em;
+            color: rgba(red, green, blue, .05);
+            transition: 0.5s;
+            z-index: -1;
+        }
+        
+        .box:hover .content h2 {
+            top: -120px;
+        }
+        
+        .box .content h3 {
+            margin: 0 0 10px;
+            padding: 0;
+            font-size: 24px;
+            font-weight: 500;
+            color: #fff;
+        }
+        
+        .box .content p {
+            margin: 0;
+            padding: 0;
+            color: #fff;
+            font-size: 16px;
+        }
+        
+        .box .content a {
+            position: relative;
+            margin: 47px 0 0;
+            padding: 10px 20px;
+            text-decoration: none;
+            border: 1px solid #fff;
+            display: inline-block;
+            color: #fff;
+            transition: 0.5s;
+            transform: translateY(-40px);
+            opacity: 0;
+            visibility: hidden;
+        }
+        
+        .box:hover .content a {
+            transform: translateY((-40px));
+            opacity: 1;
+            visibility: visible;
+        }
+        
+        .box .content a:hover {
+            color: #000;
+            background: #fff;
+        }
+        
+        .navbar {
+            background: linear-gradient(to right, #1723b1, #58f0ff);
+            padding: 0 !important;
+        }
+        
+        .navbar-brand img {
+            height: 4rem;
+            padding-left: 2rem;
+        }
+        
+        .navbar-nav {
+            margin-right: 3rem;
+        }
+        
+        .navbar-nav li {
+            padding: 0 1rem;
+        }
+        
+        .navbar-nav li {
+            padding: 0 1rem;
+        }
+        
+        .navbar-nav .nav-item .nav-link {
+            color: #fff !important;
+            font-weight: 600;
+            float: right;
+            text-align: left;
+        }
+        
+        .navbar-nav .nav-item .nav-link:hover {
+            color: #1723b1 !important;
+        }
+        
+        .fa-bars {
+            color: #fff !important;
+            font-size: 25px !important;
+        }
+        
+        .navbar-toggler {
+            margin-right: 10px !important;
+            outline: none !important;
+        }
+        
+        #footer {
+            background: linear-gradient(to right, #1723b1, #58f0ff);
+            color: #fff;
+        }
+        
+        .footer-img {
+            width: 100%;
+        }
+        
+        .footer-box h3 {
+            padding-bottom: 40px;
+            padding-top: 18px;
+        }
+        
+        .footer-box img {
+            width: 7rem;
+        }
+        
+        .footer-box .fa {
+            margin-right: 8px;
+            /* font-size: 25px;
+            height: 40px;
+            width: 40px; */
+            text-align: center;
+            padding-top: 7px;
+            border-radius: 2px;
+            display: inline-block;
+        }
+        
+        .footer-box .form-control {
+            box-shadow: none !important;
+            border: none;
+            border-radius: 0;
+        }
+        
+        .footer-box .btn-primary {
+            box-shadow: none !important;
+            width: 8rem;
+            border: none;
+            border-radius: 50px;
+            background: linear-gradient(to right, #1723b1, #58f0ff);
+            color: #fff;
+            transition: transform 1.2s;
+        }
+        
+        .footer-box .btn-primary:hover {
+            transform: scale(1.2);
+            color: #fff;
+        }
+
+        .footer{
+            /* margin-top: 2000px !important; */
+        }
+    </style>
+</head>
+
+<body>
+    {% include "main/navbar.html" %}
+
+    <section id="cards-heading">
+        <div class="cardscontainer container">
+            <div class="box">
+                <div class="content">
+                    <h2>01</h2>
+                    <h3>Company</h3>
+                    <p>
+                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Vero consectetur aliquam consequuntur hic qui optio facere fugit, non reiciendis fugiat, odit ipsam itaque! Expedita non, quas nihil perspiciatis similique eius.
+                    </p>
+                    <a href="#">Read more</a>
+                </div>
+            </div>
+            <div class="box">
+                <div class="content">
+                    <h2>02</h2>
+                    <h3>Company</h3>
+                    <p>
+                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Vero consectetur aliquam consequuntur hic qui optio facere fugit, non reiciendis fugiat, odit ipsam itaque! Expedita non, quas nihil perspiciatis similique eius.
+                    </p>
+                    <a href="#">Read more</a>
+                </div>
+            </div>
+            <div class="box">
+                <div class="content">
+                    <h2>03</h2>
+                    <h3>Company</h3>
+                    <p>
+                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Vero consectetur aliquam consequuntur hic qui optio facere fugit, non reiciendis fugiat, odit ipsam itaque! Expedita non, quas nihil perspiciatis similique eius.
+                    </p>
+                    <a href="#">Read more</a>
+                </div>
+            </div>
+            <div class="box">
+                <div class="content">
+                    <h2>04</h2>
+                    <h3>Company</h3>
+                    <p>
+                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Vero consectetur aliquam consequuntur hic qui optio facere fugit, non reiciendis fugiat, odit ipsam itaque! Expedita non, quas nihil perspiciatis similique eius.
+                    </p>
+                    <a href="#">Read more</a>
+                </div>
+            </div>
+
+            <div class="box">
+                <div class="content">
+                    <h2>05</h2>
+                    <h3>Company</h3>
+                    <p>
+                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Vero consectetur aliquam consequuntur hic qui optio facere fugit, non reiciendis fugiat, odit ipsam itaque! Expedita non, quas nihil perspiciatis similique eius.
+                    </p>
+                    <a href="#">Read more</a>
+                </div>
+            </div>
+            <div class="box">
+                <div class="content">
+                    <h2>06</h2>
+                    <h3>Company</h3>
+                    <p>
+                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Vero consectetur aliquam consequuntur hic qui optio facere fugit, non reiciendis fugiat, odit ipsam itaque! Expedita non, quas nihil perspiciatis similique eius.
+                    </p>
+                    <a href="#">Read more</a>
+                </div>
+            </div>
+        </div>
+    </section>
+    {% include "main/footer.html" %}
+</body>
+
+</html>
