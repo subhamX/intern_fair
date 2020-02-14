@@ -5,7 +5,7 @@ from django.contrib.auth.models import User
 from django.core.validators import RegexValidator
 import re
 
-phone_re = re.compile(r'^(?:(?:\+|0{0,2})91(\s*[\ -]\s*)?|[0]?)?[789]\d{9}|(\d[ -]?){10}\d$')
+phone_re = re.compile(r'^\d{10}$')
 entry_number_re = re.compile(r'^2\d\d\d\w\w\w\d\d\d\d$')
 iitrpr_email_re = re.compile(r'^[\w]+@iitrpr.ac.in$')
 phone_validator = RegexValidator(regex=phone_re, message='Invalid Phone Number')
@@ -63,3 +63,10 @@ class StudentSignUpForm(forms.ModelForm):
         ]
 
         
+class UploadCVForm(forms.ModelForm):
+    cv = forms.FileField(label="Upload CV")
+    class Meta:
+        model = models.StudentProfile
+        fields = [
+            'cv',
+        ]

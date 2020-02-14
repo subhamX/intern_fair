@@ -20,6 +20,9 @@ from student import urls as studentUrls
 from company import urls as companyUrls
 from intern_fair import views
 from payments import urls as paymentsUrls
+from django.conf import settings
+from django.conf.urls.static import static
+
 
 urlpatterns = [
     path('', views.home, name="home"),
@@ -29,4 +32,4 @@ urlpatterns = [
     path('s/', include(studentUrls)),
     path('payments/', include(paymentsUrls)),
     path('c/', include(companyUrls)),
-]
+] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

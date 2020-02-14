@@ -9,7 +9,7 @@ def payRegistration(payload):
         api = Instamojo(api_key=API_KEY, auth_token=AUTH_TOKEN)
         # api = Instamojo(api_key=API_KEY, auth_token=AUTH_TOKEN, endpoint='https://test.instamojo.com/api/1.1/')
         response = api.payment_request_create(
-            amount='20',
+            amount='100',
             purpose='Intern Fair 2k20 IIT Ropar Student Registration',
             send_email=True,
             email=payload["email"],

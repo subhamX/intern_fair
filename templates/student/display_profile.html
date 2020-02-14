@@ -55,7 +55,7 @@
 
 <body>
     {% include "main/navbar.html" %}
-    <div class="limiter" >
+    <div class="limiter">
         <div class="container-login100">
             <div class="wrap-login100">
                 <div class="login100-form-title" style="background-image: url(/static/accounts/images/bg-01.jpg);">
@@ -70,27 +70,46 @@
                 </center>
 
                 {% if not order_status %}
-                        <div class="data-container" data-validate="">
-                            <div class="data-content" style="background-color: white; text-align: center; font-size: 17px;">
-                                <div style="color: blue; background: #ffbf00; padding: 10px; border-radius: 10px;">
-                                    <span class="field_name" >
-                                        You Have Not Paid The Fees Yet. 
-                                        <div><a href='{% url "payments:pay" %}' style="color: black; font-size: 18px;">Click Here</a> to Pay.</div>
-                                    </span>
-                                </div>
-                            </div>
+                <div class="data-container" data-validate="">
+                    <div class="data-content" style="background-color: white; text-align: center; font-size: 17px;">
+                        <div style="color: blue; background: #ffbf00; padding: 10px; border-radius: 10px;">
+                            <span class="field_name">
+                                You Have Not Paid The Fees Yet.
+                                <div><a href='{% url "payments:pay" %}' style="color: black; font-size: 18px;">Click
+                                        Here</a> to Pay.</div>
+                            </span>
                         </div>
+                    </div>
+                </div>
                 {% else %}
-                    <tr>
-                        <div class="data-container" data-validate="">
-                            <div class="data-content" style="background-color: white; text-align: center;">
-                                <span class="field_name">
-                                    You Have Successfully Paid The Fees.
-                                </span>
-                            </div>
+                <div class="data-container" data-validate="">
+                    <div class="data-content" style="background-color: white; text-align: center; font-size: 17px;">
+                        <div style="color: blue; background: #ffbf00; padding: 10px; border-radius: 10px;">
+                            <span class="field_name">
+                                You Have Successfully Paid The Fees..
+                            </span>
                         </div>
-                    </tr>
+                    </div>
+                </div>
                 {% endif %}
+                <tr>
+                    <div class="data-container" data-validate="">
+                        <div class="data-content"
+                            style="color: darkred; font-weight: bold; text-align: center; font-size: 20px; background-color: #c9e915;">
+                            <span class="field_name">
+                                PROFILE STATUS :
+                            </span>
+                            <span class="field_data">
+                                {% if pro_complete %}
+                                    Complete
+                                {% else %}
+                                    Incomplete
+                                {% endif %}
+
+                            </span>
+                        </div>
+                    </div>
+                </tr>
                 {% for field in data %}
                 <tr>
                     <div class="data-container" data-validate="">
@@ -102,10 +121,41 @@
                                 {{ field.value }}
                             </span>
                         </div>
-
                     </div>
                 </tr>
                 {% endfor %}
+                {% if uploadedFlag %}
+                <tr>
+                    <div class="data-container" data-validate="">
+                        <div class="data-content">
+                            <span class="field_name">
+                                CV :
+                            </span>
+                            <span class="field_data">
+                                Uploaded
+                            </span>
+                        </div>
+                    </div>
+                </tr>
+                {% else %}
+                <form action="/s/profile/" method="post" enctype="multipart/form-data">
+                    {% csrf_token %}
+                    <div class="data-container">
+                        <div class="data-content" style="background: #F57F17">
+                            <span class="field_name">
+                                {{ form.cv.label }} :
+                            </span>
+                            <span class="field_data">
+                                {{ form.cv }}
+                            </span>
+                            <span>
+                                <button type="submit"
+                                    style="background-color: skyblue; padding: 9px; border-radius: 10px; font-weight: bold;">Submit</button>
+                            </span>
+                        </div>
+                    </div>
+                </form>
+                {% endif %}
             </div>
         </div>
     </div>

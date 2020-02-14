@@ -2,8 +2,6 @@ from django.db import models
 from django.contrib.auth.models import User
 
 
-
-
 class CompanyProfile(models.Model):
     company_name = models.CharField(max_length=100)
     email = models.EmailField()
@@ -12,7 +10,7 @@ class CompanyProfile(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE, null=True)
 
     def __str__(self):
-        return self.company_name
+        return self.company_name + ' || ' + self.email
 
 class StudentProfile(models.Model):
     CHOICES = (
@@ -28,10 +26,12 @@ class StudentProfile(models.Model):
     college_year=models.CharField(max_length=50)
     user = models.OneToOneField(User, on_delete=models.CASCADE, null=True)
     reg_fees_paid = models.BooleanField(default=False)
-    order_id = models.CharField(max_length=1000, null=True)
+    order_id = models.CharField(max_length=1000, null=True, blank=True)
+    cv = models.FileField(null=True, blank=True)
+    is_profile_complete = models.BooleanField(default=False)
     
     def __str__(self):
-        return self.name
+        return self.name + ' || ' + self.email
 
 
 # Create your models here.
@@ -41,4 +41,4 @@ class Profile(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE)
 
     def __str__(self):
-        return self.user.username
+        return self.user.email

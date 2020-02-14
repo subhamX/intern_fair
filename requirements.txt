@@ -2,3 +2,5 @@ Django==2.1.14 #This requirement must remain pinned at 2.1.14 until https://gith
 mysqlclient
 django-multiselectfield
 instamojo_wrapper
+django-storages[google]
+google-cloud-storage

@@ -3,17 +3,24 @@
 
 <head>
     <meta charset="utf-8">
-    <title>E-cell Companies</title>
+    <title>Intern Fair Startup Profiles</title>
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
     <meta content="" name="keywords">
     <meta content="" name="description">
     <link rel="shortcut icon" href="/static/base/images/logo.png">
-    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,700,700i|Montserrat:300,400,500,700" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,700,700i|Montserrat:300,400,500,700"
+        rel="stylesheet">
     <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+        crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"
+        defer></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootbox.js/5.4.0/bootbox.min.js"
+        integrity="sha256-sfG8c9ILUB8EXQ5muswfjZsKICbRIJUG/kBogvvV5sY=" crossorigin="anonymous" defer></script>
     <style>
         body {
             margin: 0;
@@ -22,7 +29,7 @@
             min-height: 100vh;
             background-color: blueviolet;
         }
-        
+
         .cardscontainer {
             position: relative;
             width: 90%;
@@ -32,7 +39,7 @@
             grid-template-rows: auto;
             padding-top: 20px;
         }
-        
+
         .cardscontainer .box {
             position: relative;
             height: 400px;
@@ -43,7 +50,7 @@
             border: 1px solid #000;
             margin-bottom: 20px;
         }
-        
+
         .cardscontainer .box:before {
             content: '';
             position: absolute;
@@ -56,37 +63,37 @@
             transform: skew(2deg, 2deg);
             z-index: -1;
         }
-        
+
         .cardscontainer .box:nth-child(1)::before {
             background: linear-gradient(315deg, #ff0057, #e64a19);
         }
-        
+
         .cardscontainer .box:nth-child(3)::before {
             background: linear-gradient(315deg, yellow, #e64a19);
         }
-        
+
         .cardscontainer .box:nth-child(5)::before {
             background: linear-gradient(315deg, green, #e64a19);
         }
-        
+
         .cardscontainer .box:nth-child(2)::before {
             background: linear-gradient(315deg, #ff0057, #e64a19);
         }
-        
+
         .cardscontainer .box:nth-child(4)::before {
             background: linear-gradient(315deg, yellow, #e64a19);
         }
-        
+
         .cardscontainer .box:nth-child(6)::before {
             background: linear-gradient(315deg, green, #e64a19);
         }
-        
+
         .content {
             position: relative;
             padding: 20px;
             transform: translateY(40px);
         }
-        
+
         .cardscontainer .box:after {
             content: '';
             position: absolute;
@@ -97,7 +104,7 @@
             background: rgba(red, green, blue, .05);
             pointer-events: none;
         }
-        
+
         .box .content h2 {
             position: absolute;
             top: -60px;
@@ -109,7 +116,7 @@
             transition: 0.5s;
             z-index: -1;
         }
-        
+
         .box .content img {
             position: relative;
             top: -60px;
@@ -120,11 +127,11 @@
             transition: 0.5s;
             z-index: -1;
         }
-        
+
         .box:hover .content h2 {
             top: -120px;
         }
-        
+
         .box .content h3 {
             margin: 0 0 10px;
             padding: 0;
@@ -132,14 +139,14 @@
             font-weight: 500;
             color: #fff;
         }
-        
+
         .box .content p {
             margin: 0;
             padding: 0;
             color: black;
             font-size: 16px;
         }
-        
+
         .box .content a {
             position: relative;
             margin: 47px 0 0;
@@ -150,82 +157,77 @@
             color: #fff;
             transition: 0.5s;
             transform: translateY(-40px);
-            opacity: 0;
-            visibility: hidden;
-        }
-        
-        .box:hover .content a {
-            transform: translateY((-40px));
             opacity: 1;
-            visibility: visible;
+            visibility: visible !important;
         }
-        
+
         .box .content a:hover {
             color: #000;
             background: #fff;
         }
-        
+
         .navbar {
             background: linear-gradient(to right, #1723b1, #58f0ff);
             padding: 0 !important;
         }
-        
+
         .navbar-brand img {
             height: 4rem;
             padding-left: 2rem;
         }
-        
+
         .navbar-nav {
             margin-right: 3rem;
         }
-        
+
         .navbar-nav li {
             padding: 0 1rem;
         }
-        
+
         .navbar-nav li {
             padding: 0 1rem;
         }
-        
+
         .navbar-nav .nav-item .nav-link {
             color: #fff !important;
             font-weight: 600;
             float: right;
             text-align: left;
         }
-        
+
         .navbar-nav .nav-item .nav-link:hover {
             color: #1723b1 !important;
         }
-        
+
+
         .fa-bars {
             color: #fff !important;
             font-size: 25px !important;
         }
-        
+
         .navbar-toggler {
             margin-right: 10px !important;
             outline: none !important;
         }
-        
+
         #footer {
             background: linear-gradient(to right, #1723b1, #58f0ff);
             color: #fff;
         }
-        
+
         .footer-img {
             width: 100%;
         }
-        
+
         .footer-box h3 {
             padding-bottom: 40px;
             padding-top: 18px;
         }
-        
+
         .footer-box img {
             width: 7rem;
         }
-        
+
         .footer-box .fa {
             margin-right: 8px;
             /* font-size: 25px;
@@ -236,13 +238,13 @@
             border-radius: 2px;
             display: inline-block;
         }
-        
+
         .footer-box .form-control {
             box-shadow: none !important;
             border: none;
             border-radius: 0;
         }
-        
+
         .footer-box .btn-primary {
             box-shadow: none !important;
             width: 8rem;
@@ -252,88 +254,173 @@
             color: #fff;
             transition: transform 1.2s;
         }
-        
+
         .footer-box .btn-primary:hover {
             transform: scale(1.2);
             color: #fff;
         }
-        
-        .footer {
-            /* margin-top: 2000px !important; */
+
+        .heading-company {
+            font-size: 40px;
+            font-weight: bold;
+        }
+
+        @media only screen and (max-width: 380px) {
+            .heading-company {
+                font-size: 25px;
+            }
         }
     </style>
 </head>
 
 <body>
     {% include "main/navbar.html" %}
-
+    <section
+        style="text-align: center; background-color: #ffbf00; margin: 20px auto; padding: 10px 30px; border-radius: 40px; width: fit-content;">
+        <div class="heading-company">COMPANIES PARTICIPATING</div>
+        {% if not user.is_authenticated %}
+        <div class="message" style="color: darkred; font-weight: bold;">Sign In as Student to apply</div>
+        {% else %}
+        <div class="message" style="color: darkred; font-weight: bold;">{{complete_profile_message}}</div>
+        {% endif %}
+    </section>
     <section id="cards-heading">
         <div class="cardscontainer container">
-            <div class="box">
+            <div class="box" style="height: fit-content;">
                 <div class="content">
                     <!-- <h2>02</h2> -->
-                    <img src="/static/startup/img/gyan.jpg" alt="">
+                    <img src="/static/startup/img/gyan.jpg" alt="" style="width: 100%">
                     <h3>Gyan Era Learning Solutions Pvt. Ltd.</h3>
                     <p>
-                        Designing in 2D and 3D, e-learning content for Higher class. Robotics product development and designing.
+                        Designing in 2D and 3D, e-learning content for Higher class. Robotics product development and
+                        designing.
                     </p>
-                    <a href="#">Read more</a>
+                    <a target="_blank"
+                        href="https://drive.google.com/file/d/1q2KAWKwG4-XO9khrZ8wprSTJ4GRAw0wD/view">DESCRIPTION</a>
+                    {% if show_apply %}
+                    <a id="1_option" style="cursor: pointer">APPLY</a>
+                    {% endif %}
                 </div>
             </div>
-            <div class="box">
+            <div class="box" style="height: fit-content;">
                 <div class="content">
-                    <img src="/static/startup/img/signicent.png" alt="">
+                    <img src="/static/startup/img/signicent.png" alt="" style="width: 100%">
                     <h3>Signicent Information Solutions LLP</h3>
                     <p>
-                        We are looking for a creative and passionate candidates to design, develop and implement Solution for Data engineering and Product Development.
+                        We are looking for a creative and passionate candidates to design, develop and implement
+                        Solution for Data engineering and Product Development.
                     </p>
-                    <a href="#">Read more</a>
+                    <a target="_blank"
+                        href="https://drive.google.com/file/d/1toF2vehtJVD_YG-e7NuHHbFt6cquI-5Y/view">DESCRIPTION</a>
+                    {% if show_apply %}
+                    <a id="2_option" style="cursor: pointer">APPLY</a>
+                    {% endif %}
                 </div>
             </div>
-            <!-- <div class="box">
+            <div class="box" style="height: fit-content;">
                 <div class="content">
-                    <h2>03</h2>
-                    <h3>Company</h3>
+                    <img src="/static/startup/img/Aiotize-logo.png" alt="" style="width: 100%">
+                    <h3>Aiotize</h3>
                     <p>
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Vero consectetur aliquam consequuntur hic qui optio facere fugit, non reiciendis fugiat, odit ipsam itaque! Expedita non, quas nihil perspiciatis similique eius.
+                        Experience in Drone agnostic software development would be an Addon.Experience with Drone
+                        Development would be Plus point.
                     </p>
-                    <a href="#">Read more</a>
+                    <a target="_blank"
+                        href="https://drive.google.com/file/d/1kw3zuIUAMsai5MaWTDiStjGmLhX5KPTQ/view?usp=sharing">DESCRIPTION</a>
+                    {% if show_apply %}
+                    <a id="3_option" style="cursor: pointer">APPLY</a>
+                    {% endif %}
                 </div>
             </div>
-            <div class="box">
+            <div class="box" style="height: fit-content;">
                 <div class="content">
-                    <h2>04</h2>
-                    <h3>Company</h3>
+                    <img src="/static/startup/img/premind-logo.png" alt="" style="width: 100%">
+                    <h3>Preminds Solutions</h3>
                     <p>
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Vero consectetur aliquam consequuntur hic qui optio facere fugit, non reiciendis fugiat, odit ipsam itaque! Expedita non, quas nihil perspiciatis similique eius.
+                        I need those interns who are self driven and who must know how to grow the business from
+                        beginning to top level. If he/she doesn't know then must be ready to learn that.
                     </p>
-                    <a href="#">Read more</a>
+                    <a target="_blank"
+                        href="https://drive.google.com/file/d/1NBtBhAD7dgnRfVi-XMxj7DnR7ai8uB-C/view?usp=sharing">DESCRIPTION</a>
+                    {% if show_apply %}
+                    <a id="4_option" style="cursor: pointer">APPLY</a>
+                    {% endif %}
                 </div>
             </div>
-
-            <div class="box">
+            <div class="box" style="height: fit-content;">
                 <div class="content">
-                    <h2>05</h2>
-                    <h3>Company</h3>
+                    <img src="/static/startup/img/log9-img.png" alt=""
+                        style="width: 60%; height: 30%; margin-bottom: 0;">
+                    <h3>Log 9 Materials Scientific Private Limited</h3>
                     <p>
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Vero consectetur aliquam consequuntur hic qui optio facere fugit, non reiciendis fugiat, odit ipsam itaque! Expedita non, quas nihil perspiciatis similique eius.
+                        Log 9 Materials is a nanotechnology company specializing in Graphene. We are a determined team
+                        of scientists and engineers working on commercializing Graphene.
                     </p>
-                    <a href="#">Read more</a>
+                    <a target="_blank"
+                        href="https://drive.google.com/file/d/13y6fVM56SuO8IBFvTSqSLWQgHIQhdW-N/view?usp=sharing">DESCRIPTION</a>
+                    {% if show_apply %}
+                    <a id="5_option" style="cursor: pointer">APPLY</a>
+                    {% endif %}
                 </div>
             </div>
-            <div class="box">
-                <div class="content">
-                    <h2>06</h2>
-                    <h3>Company</h3>
-                    <p>
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Vero consectetur aliquam consequuntur hic qui optio facere fugit, non reiciendis fugiat, odit ipsam itaque! Expedita non, quas nihil perspiciatis similique eius.
-                    </p>
-                    <a href="#">Read more</a>
-                </div>
-            </div> -->
         </div>
     </section>
     {% include "main/footer.html" %}
+
+    <script>
+        let fetchEndpoint = "{{ fetch_endpoint }}";
+        let postEndpoint = "{{ post_endpoint }}";
+        let flag = "{{show_apply}}";
+        async function fetchOptions() {
+            let res = await fetch(fetchEndpoint);
+            let json = await res.json();
+            for (let i of json) {
+                let elem = document.getElementById(i.label)
+                let options = i.options;
+                let inputOptions = [];
+                let count = 0;
+                for (let option of options) {
+                    inputOptions.push({
+                        'text': option,
+                        'value': count++,
+                    })
+                }
+                elem.addEventListener("click", (event) => {
+                    bootbox.prompt({
+                        size: "small",
+                        title: "What Roles you would like to apply?",
+                        "inputType": "checkbox",
+                        "inputOptions": inputOptions,
+                        callback: async function (result) {
+                            if (result.length) {
+                                let payload = {
+                                    "options": result,
+                                    "id": event.target.id
+                                }
+
+                                let url = postEndpoint + event.target.id.split("_")[0] + '/?options=' + result.join("_");
+                                window.location.href = url;
+                            }
+                            // fetch().then(er => {
+                            //     console.log(er);
+                            // });
+                            /* result = String containing user input if OK clicked or null if Cancel clicked */
+                        }
+                    });
+                });
+            }
+        }
+
+        window.addEventListener("DOMContentLoaded", () => {
+            if (flag != "False" && flag != "") {
+                console.log('Added Options!');
+                fetchOptions();
+            }
+        })
+        // fetch(endpoint).then((res) => res.json()).then
+
+
+    </script>
 </body>
 
 </html>

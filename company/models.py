@@ -1,22 +1,7 @@
 from django.db import models
 from multiselectfield import MultiSelectField
-from accounts.models import CompanyProfile
-# Create your models here.
+from accounts.models import CompanyProfile, StudentProfile
 
-
-    # your_name = forms.CharField(widget=forms.TextInput(attrs = { 'class': 'input100','placeholder':'Your Name'}))
-    # your_postion = forms.CharField(widget=forms.TextInput(attrs = { 'class': 'input100','placeholder':'Your Position'}))
-    # name_of_founders = forms.CharField(max_length=1000, widget=forms.TextInput(attrs = { 'class': 'input100', 'placeholder': 'Elon Musk'}), label="Name of the founder(s)")
-    # description = forms.CharField(widget=forms.Textarea(attrs = { 'class': 'input100','placeholder':'Brief description of your startup'}), label="Brief Description")
-    # others = forms.CharField(widget=forms.TextInput(attrs = { 'class': 'input100','placeholder':'Others Profiles (if any)'}), label='Other Profiles', required=False)
-    # number_of_vacancies = forms.IntegerField(widget=forms.NumberInput(attrs = { 'class': 'input100','placeholder':'Eg - 10, 8 etc'}))
-    # location = forms.CharField(max_length=100, widget=forms.TextInput(attrs = { 'class': 'input100', 'placeholder': 'Eg - Work From Home, Bangalore etc'}), label="Location")
-    # stipend_offered = forms.CharField(widget=forms.NumberInput(attrs = { 'class': 'input100','placeholder':'10000'}), label="Stipend Offered(in INR)")
-    # description = forms.CharField(widget=forms.Textarea(attrs = { 'class': 'input100','placeholder':''}), label="Brief description of the work profile of internship")
-    # other_incentive = forms.CharField(widget=forms.Textarea(attrs = { 'class': 'input100','placeholder':'Accomodation, Travel etc'}), label="Any other incentives")
-    # requirements = forms.CharField(widget=forms.Textarea(attrs = { 'class': 'input100','placeholder':''}), label="Any specific requirements")
-    # reference = forms.CharField(widget=forms.TextInput(attrs = { 'class': 'input100','placeholder':'Eg:- Social Media, Website etc'}), label="How did you come to know about us?")
-    # address = form
 class CompanyData(models.Model):
     CHOICES = (
         ('w', 'Web Development' ),
@@ -49,3 +34,18 @@ class CompanyData(models.Model):
 
     def __str__(self):
         return self.user.company_name
+
+class ApplyProfile(models.Model):
+    student = models.ForeignKey(StudentProfile, on_delete=models.CASCADE)
+    applied_roles = models.TextField(max_length=1000)
+    
+    def __str__(self):
+        return self.student.name
+
+
+class RegCompany(models.Model):
+    id = models.IntegerField(primary_key=True, default=100)
+    name = models.CharField(max_length=1000)
+    apply_profile = models.ManyToManyField(ApplyProfile, blank=True)
+    def __str__(self):
+        return self.name

@@ -117,3 +117,6 @@ db.sqlite3
 !**/migrations/__init__.py
 
 payments/cred.py
+internfairiitrpr-9422d095a78a.json
+data_people.csv
+send_email.py

@@ -11,9 +11,9 @@ from django.contrib.auth.decorators import login_required
 def checkAndRedirect(user):
     profileInstance = models.Profile.objects.get(user=user)
     if( profileInstance.is_student == True):
-        return HttpResponseRedirect(reverse('student:home'))
+        return HttpResponseRedirect(reverse('student:profile'))
     else:
-        return HttpResponseRedirect(reverse('company:home'))
+        return HttpResponseRedirect(reverse('company:profile'))
 
 
 

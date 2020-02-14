@@ -18,6 +18,8 @@ def verifyPayment(request):
         if(instance.count()):
             profile = instance[0]
             profile.reg_fees_paid = True
+            if(profile.cv):
+                profile.is_profile_complete = True
             profile.save()
             return HttpResponseRedirect(reverse("student:profile"))
         else:
@@ -46,6 +48,8 @@ def payRegistrationFees(request):
             if(res["status"]):
                 # Changing The Paid Status To True 
                 instance.reg_fees_paid = True
+                if(profile.cv):
+                    profile.is_profile_complete = True
                 instance.save()
                 return HttpResponseRedirect(reverse("student:profile"))
             else:
