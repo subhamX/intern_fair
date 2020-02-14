@@ -120,3 +120,6 @@ payments/cred.py
 internfairiitrpr-9422d095a78a.json
 data_people.csv
 send_email.py
+token.pickle
+credentials.json
+sheets/
